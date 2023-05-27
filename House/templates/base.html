@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>
+    {% block title %}
+    
+    {% endblock %}
+  </title>
+</head>
+<body>
+  <header>
+    <h1>HouseExplorer</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home_page') }}">Home</a></li>
+        <li><a href="{{ url_for('house_page') }}">Houses</a></li>
+        <li><a href="{{ url_for('about_page') }}">About</a></li>
+        <li><a href="{{ url_for('sign_page') }}">Sign in</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+  
+    {% endblock %}
+  </main>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="contact-info">
+        <h3>Contact</h3>
+        <p>Phone: 123-456-7890</p>
+        <p>Email: <a href="mailto:info@houseexplorer.com">info@houseexplorer.com</a></p>
+      </div>
+      <div class="address-info">
+        <h3>Address</h3>
+        <p>123 Main Street</p>
+        <p>City, State, ZIP</p>
+      </div>
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <ul>
+          <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+          <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+          <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+        </ul>        
+      </div>
+    </div>
+  </footer>
+  <script src="/static/main.js"></script>
+</body>
+</html>

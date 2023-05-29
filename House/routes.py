@@ -21,5 +21,3 @@ def about_page():
 @app.route('/sign in')
 def sign_page():
     return render_template('sign.html')
-
-

@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from views.routes import site_views
 from views import app_views
 from views.house import db

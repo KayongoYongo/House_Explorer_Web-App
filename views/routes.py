@@ -21,4 +21,4 @@ def about_page():
 
 @site_views.route('/sign_up')
 def sign_page():
-    return render_template('sign.html')
+    return render_template('sign_up.html')

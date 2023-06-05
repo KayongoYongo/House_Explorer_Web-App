@@ -8,7 +8,7 @@ from models.house import House
 app = Flask(__name__)
 
 # This establishes a connection between the database and the flask app
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://new_user:password@localhost:3306/house_hunter'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://end_user:password@localhost:3306/house_hunter'
 
 # Create the db object
 db = SQLAlchemy(app)

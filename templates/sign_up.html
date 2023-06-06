@@ -5,33 +5,46 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <p>This is the Sign Up page</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" class="form-register" style="color:white">
+
+                {{ form.hidden_tag() }} <!--JINJA syntax to Protect our form from Cross-Site Attacks (CORS)-->
+
+                <h1 class = "h3 mb-3 font-weight-normal">
+                    Create your Account
+                </h1>
+
+                <div class="form-group">
+                    {{ form.username.label() }}
+                    {{ form.username(class="form-control", placeholder="User Name") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email_address.label() }}
+                    {{ form.email_address(class="form-control", placeholder="Email Address") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password1.label() }}
+                    {{ form.password1(class="form-control", placeholder="Password") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password2.label() }}
+                    {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+                </div>
+
+
+                <div class="checkbox mb-3">
+                    <h6>Already have an account?</h6>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('site_views.log_in') }}">Login</a>
+                </div>
+                
+                {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            </form>
+        </div>
+    </div>
 </div>
-
-<h1> Sign Up </h1>
-
-<form action="/sign_up" method="post">
-    <label>
-        Name:
-        <input type="text" name="name" placeholder="name"/>
-    </label>
-    <br>
-    <label> 
-        Email:
-        <input type="email" name="email" placeholder="email"/>
-    </label>
-    <br>
-    <label>
-        Password:
-        <input type="text" name="password_1" placeholder="password"/>
-    </label>
-    <br>
-    <label>
-        Repeat password:
-        <input type="text" name="password_2" placeholder="password"/>
-    </label>
-    <br>
-    <input type="submit"/>
-</form>
 {% endblock %}

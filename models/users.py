@@ -25,7 +25,9 @@ class User(db.Model):
     password_1 = db.Column(db.String(128), nullable=False)
     password_2 = db.Column(db.String(128), nullable=False)
 
-    def __init__(self, name, email):
+    def __init__(self, name, email, password_1, password_2):
         self.id = str(uuid.uuid4())
         self.name = name
         self.email = email
+        self.password_1 = password_1
+        self.password_2 = password_2

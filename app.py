@@ -1,8 +1,7 @@
 from flask import Flask
 from views.routes import site_views
 from views import app_views
-from views.house import db
-from views.sign_up import db
+from views import db
 
 # A flask application instance
 app = Flask(__name__)

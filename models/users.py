@@ -1,19 +1,30 @@
 #!/usr/bin/python3
 
+from views import db
 from datetime import datetime
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+# from flask import Flask
 from sqlalchemy import Column, Integer, String, MetaData
 import uuid
+
+"""
+The following lines of code are only important when buiding a database mode from flask.
+To create the model, carry out the following command  within the file's directory.
+-> export FLASK_APP=users
+-> flask shell
+
+Withing the flask console:
+>>>from models.users import db, Student
+>>>db.create_all()
 
 # Create the flask application object
 app = Flask(__name__)
 
-# This establishes a connection between the database and the flask app
+# This configuration establishes a connection between the database and the flask app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://end_user:password@localhost:3306/house_hunter'
 
-# Create the db object
-db = SQLAlchemy(app)
+# Initialize the SQLAlchemy extension
+db.init_app(app)
+"""
 
 class User(db.Model):
     __tablename__ = 'users'

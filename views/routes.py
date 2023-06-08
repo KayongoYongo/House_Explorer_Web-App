@@ -1,10 +1,7 @@
-from flask import Blueprint, Flask
-from flask import render_template
+from flask import Blueprint, render_template
 
 # Create a blueprint to handle different routes within the web page
 site_views = Blueprint('site_views', __name__, static_folder='static', template_folder='templates', static_url_path='/static')
-
-# app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 @site_views.route('/')
 @site_views.route('/home')
@@ -17,8 +14,12 @@ def house_page():
 
 @site_views.route('/about')
 def about_page():
-    return render_template('About.html')
+    return render_template('about.html')
 
 @site_views.route('/sign_up')
 def sign_page():
     return render_template('sign_up.html')
+
+@site_views.route('/log_in')
+def log_in():
+    return render_template('log_in.html')

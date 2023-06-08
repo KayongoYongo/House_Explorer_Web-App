@@ -1,18 +1,26 @@
-from flask import Blueprint
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-# Create a universal blueprint
-app_views = Blueprint('app_views', __name__, url_prefix='/views')
+# Creating a database object
+db = SQLAlchemy()
 
-# Create the flask application object
-app = Flask(__name__)
+def create_app():
+    # Create a flask application instance
+    app = Flask(__name__)
 
-# This establishes a connection between the database and the flask app
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://end_user:password@localhost:3306/house_hunter'
+    # This configuration establishes a connection between the database and the flask app
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://end_user:password@localhost:3306/house_hunter'
 
-# Create the db object
-db = SQLAlchemy(app)
+    # Initialize the database
+    db.init_app(app)
 
-from views.house import *
-from views.sign_up import *
+    from views.routes import  site_views
+    from views.sign_up import users_blueprint
+    from views.house import house_blueprint
+
+    # Register the blueprints
+    app.register_blueprint(site_views, url_prefix='')
+    app.register_blueprint(users_blueprint, url_prefix='')
+    app.register_blueprint(house_blueprint, url_prefix='')
+
+    return app

@@ -22,7 +22,7 @@ def validate_form_data(name, email, password_1, password_2):
     # Check if the user's email exists
     existing_user = User.query.filter_by(email=email).first()
 
-    if email == existing_user:
+    if existing_user:
         error_statement = "The email already exists!"
         return error_statement
 

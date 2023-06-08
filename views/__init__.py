@@ -17,10 +17,12 @@ def create_app():
     from views.routes import  site_views
     from views.sign_up import users_blueprint
     from views.house import house_blueprint
+    from views.log_in import login_blueprint
 
     # Register the blueprints
     app.register_blueprint(site_views, url_prefix='')
     app.register_blueprint(users_blueprint, url_prefix='')
     app.register_blueprint(house_blueprint, url_prefix='')
+    app.register_blueprint(login_blueprint, url_prefix='')
 
     return app

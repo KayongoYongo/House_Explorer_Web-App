@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" action="/home" style="color:black">
+
+                <h1>
+                    Log in:
+                </h1>
+
+                <br>
+                <label> 
+                    Email:
+                    <input type="email" name="email" placeholder="email"/>
+                </label>
+                <br>
+                <label> 
+                    Password:
+                    <input type="password" name="password_1" placeholder="******"/>
+                </label>
+
+                <br>
+                <input type="submit"/>
+
+                <br>
+                {{ error_statement }}
+                
+                <br>
+                <p> Already a user? </p>
+            </form>                      
+        </div>    
+    </div>
+</div>   
+{% endblock %}

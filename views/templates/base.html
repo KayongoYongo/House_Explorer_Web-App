@@ -17,11 +17,12 @@
     <nav>
       <ul>
         {% if user.is_authenticated %}
-          <li><a href="{{ url_for('site_views.house_page') }}">Houses</a></li>
+          <li><a href="{{ url_for('site_views.house_page', user_id=current_user.id) }}">Houses</a></li>
           <li><a href="{{ url_for('logout_blueprint.log_out') }}">Log out</a></li>
+          <li><a href="{{ url_for('site_views.home_page', user_id=current_user.id) }}">Home page</a></li>
         {% else %}
-        <li><a href="{{ url_for('site_views.about_page') }}">About</a></li>
-          <li><a href="{{ url_for('site_views.log_in') }}">Log in</a></li>
+          <li><a href="{{ url_for('site_views.about_page') }}">About</a></li>
+          <li><a href="{{ url_for('site_views.log_in')}}">Log in</a></li>
           <li><a href="{{ url_for('site_views.sign_page') }}">Sign up</a></li>
         {% endif %}
       </ul>

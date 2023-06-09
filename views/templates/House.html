@@ -5,23 +5,86 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <p>This is the house page</p>
-</div>
 
-<h1>House Test</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/create_house" method="post">
 
-<form action="/create_house" method="post">
-    <label>
-        Name:
-        <input type="text" name="name" placeholder="name"/>
-    </label>
-    <br>
-    <label> 
-        Email:
-        <input type="email" name="email" placeholder="email"/>
-    </label>
-    <br>
-    <input type="submit"/>
-</form>
+                <h1><p>Add listing:</p></h1>
+                <br>
+                <label> 
+                    <b>Email:</b>
+                    <input type="email" name="email" placeholder="email" required/>
+                </label>
+                <br>
+                <br>
+                <label> 
+                    <b>Cost:</b>
+                    <input type="text" name="cost" placeholder="cost" pattern="^\d+(?:\.\d{1,2})?$" required/>
+                </label>
+                <br>
+                <label> 
+                    <b>Rooms:</b>
+                    <input type="number" name="rooms" placeholder="rooms" pattern="^\d+(?:\.\d{1,2})?$" required/>
+                </label>
+                <br>
+                <label> 
+                    <b>Location:</b>
+                    <input type="text" name="location" placeholder="location" required/>
+                </label>
+                <br>
+                <label> 
+                    <b>Estate:</b>
+                    <input type="text" name="estate" placeholder="estate" required/>
+                </label>
+                <br>
+                <label> 
+                    <b>Water Availability:</b>
+                    <br>
+                    <input type="radio" name="water_availability" value="daily" required> Daily
+                    <input type="radio" name="water_availability" value="irregular" required> Irregular
+                </label>
+                <br>
+                <label> 
+                    <b>Internet Provider:</b>
+                    <br>
+                    <input type="radio" name="internet_provider" value="safaricom" required> Safaricom
+                    <input type="radio" name="internet_provider" value="faiba" required> Faiba
+                    <input type="radio" name="internet_provider" value="zuku" required> Zuku
+                    <input type="radio" name="internet_provider" value="3rd party" required> 3rd party
+                </label>
+                <br>
+                <label> 
+                    <b>Parking:</b>
+                    <br>
+                    <input type="radio" name="parking" value="avaiable" required> Available
+                    <input type="radio" name="parking" value="not_avaiable" required> Not available
+                </label>
+                <br>
+                <label> 
+                    <b>Security:</b>
+                    <br>
+                    <input type="radio" name="security" value="avaiable" required> Available
+                    <input type="radio" name="security" value="not_avaiable" required> Not available
+                </label>
+                <br>
+                <label> 
+                    <b>Garbage Collection:</b>
+                    <br>
+                    <input type="radio" name="garbage_collection" value="avaiable" required> Available
+                    <input type="radio" name="garbage_collection" value="not_avaiable" required> Not available   
+                </label>
+                <br>
+                <label> 
+                    <b>Photo:</b>
+                    <br>
+                    <input type="file" name="photo" required/>
+                </label>
+                <br>
+            </form>
+            <input type="submit" value="Submit"/>
+        </div>    
+    </div>
+</div>   
 {% endblock %}

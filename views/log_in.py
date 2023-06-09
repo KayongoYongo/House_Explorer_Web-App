@@ -2,6 +2,8 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import login_user as login_module
+from flask_login import login_required, logout_user, current_user
 from models.users import User
 from views import db
 
@@ -24,14 +26,15 @@ def login_user():
     if user:
         if (user.password_1, password_1):
             error_statement = "Log In Successful"
-            return render_template("home.html", error_statement=error_statement)
+            # This is going to make sure the user is logged in within the flask session
+            login_module(user, remember=True)
+            return render_template("home.html", user=current_user, error_statement=error_statement)
         else:
             error_statement = "incorrect password"
     else:
             error_statement = "Email does not exist!"
 
     if error_statement:
-         return render_template("log_in.html", error_statement=error_statement)
-
+         return render_template("log_in.html", error_statement=error_statement, user=current_user)
+    
     return redirect(url_for('site_views.home_page'))
-        

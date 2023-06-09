@@ -24,7 +24,7 @@ def create_user():
     error_statement = validate_form_data(name, email, password_1, password_2)
 
     if error_statement:
-        return render_template("sign_up.html", error_statement=error_statement)
+        return render_template("sign_up.html", error_statement=error_statement, user=None)
 
     # Create an instance of the model
     form_data = User(name=name, email=email, password_1=password_1, password_2=password_2)

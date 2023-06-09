@@ -2,7 +2,7 @@
 
 from views import db
 from datetime import datetime
-# from flask import Flask
+from flask_login import UserMixin
 from sqlalchemy import Column, Integer, String, MetaData
 import uuid
 
@@ -26,7 +26,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://end_user:password@local
 db.init_app(app)
 """
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = Column(db.String(60), primary_key=True, nullable=False)
     created_at = Column(db.DateTime, default=datetime.utcnow(), nullable=False)

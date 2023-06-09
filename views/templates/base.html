@@ -16,11 +16,14 @@
     <h1>HouseExplorer</h1>
     <nav>
       <ul>
-        <li><a href="{{ url_for('site_views.home_page') }}">Home</a></li>
-        <li><a href="{{ url_for('site_views.house_page') }}">Houses</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{{ url_for('site_views.house_page') }}">Houses</a></li>
+          <li><a href="{{ url_for('logout_blueprint.log_out') }}">Log out</a></li>
+        {% else %}
         <li><a href="{{ url_for('site_views.about_page') }}">About</a></li>
-        <li><a href="{{ url_for('site_views.log_in') }}">Log in</a></li>
-        <li><a href="{{ url_for('site_views.sign_page') }}">Sign in</a></li>
+          <li><a href="{{ url_for('site_views.log_in') }}">Log in</a></li>
+          <li><a href="{{ url_for('site_views.sign_page') }}">Sign up</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>

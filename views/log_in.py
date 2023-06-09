@@ -23,7 +23,7 @@ def login_user():
     error_statement = None  
 
     if user:
-        if (user.password_1, password_1):
+        if (user.password_1 == password_1):
             error_statement = "Log In Successful"
             # This is going to make sure the user is logged in within the flask session
             login_module(user, remember=True)
@@ -32,7 +32,7 @@ def login_user():
         else:
             error_statement = "incorrect password"
     else:
-            error_statement = "Email does not exist!"
+        error_statement = "Email does not exist!"
 
     if error_statement:
          return render_template("log_in.html", error_statement=error_statement, user=current_user)

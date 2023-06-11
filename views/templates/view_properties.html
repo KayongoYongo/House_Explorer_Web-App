@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Property Images
+{% endblock %}
+
+{% block content %}
+<h1>Properties: </h1>
+    {% for filename in image_files %}
+        <a href="{{ url_for('site_views.home_page') }}" a>
+        <img src="{{ url_for('static', filename='UPLOADS/' + filename) }}" width="400" height="300">
+        </a>
+    {% endfor %}
+{% endblock %}
+

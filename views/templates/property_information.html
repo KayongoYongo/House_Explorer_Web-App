@@ -6,13 +6,11 @@
 
 {% block content %}
 
-<h1>Properties:</h1>
+<!--<h1>Properties:</h1>
 <div style="display: flex; flex-wrap: wrap;">
     {% for index, filename in image_files|enumerate %}
         <div style="width: 25%; margin-right: 20px;">
-            <a href="{{ url_for('site_views.home_page') }}">
-                <img src="{{ url_for('static', filename='UPLOADS/' + filename) }}" width="400" height="300">
-            </a>
+            <img src="{{ url_for('static', filename='UPLOADS/' + filename) }}" width="400" height="300">
             <div>
                 <p>Cost: {{ matching_properties[index].cost }}</p>
                 <p>Rooms: {{ matching_properties[index].rooms }}</p>
@@ -23,3 +21,4 @@
     {% endfor %}
 </div>
 {% endblock %}
+-->

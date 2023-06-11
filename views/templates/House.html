@@ -9,14 +9,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="/create_house" method="post">
+          <form method="POST" action="{{ url_for('property_blueprint.create_property', user_id=user_id) }}" enctype="multipart/form-data">
 
                 <h1><p>Add listing:</p></h1>
-                <br>
-                <label> 
-                    <b>Email:</b>
-                    <input type="email" name="email" placeholder="email" required/>
-                </label>
                 <br>
                 <br>
                 <label> 
@@ -30,8 +25,8 @@
                 </label>
                 <br>
                 <label> 
-                    <b>Location:</b>
-                    <input type="text" name="location" placeholder="location" required/>
+                    <b>County:</b>
+                    <input type="text" name="county" placeholder="county" required/>
                 </label>
                 <br>
                 <label> 
@@ -39,41 +34,66 @@
                     <input type="text" name="estate" placeholder="estate" required/>
                 </label>
                 <br>
-                <label> 
-                    <b>Water Availability:</b>
-                    <br>
-                    <input type="radio" name="water_availability" value="daily" required> Daily
-                    <input type="radio" name="water_availability" value="irregular" required> Irregular
+                <label>
+                  <b>Water Availability:</b>
+                  <br>
+                  <select name="water_availability" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="daily">Daily</option>
+                    <option value="irregular">Irregular</option>
+                  </select>
                 </label>
                 <br>
-                <label> 
-                    <b>Internet Provider:</b>
-                    <br>
-                    <input type="radio" name="internet_provider" value="safaricom" required> Safaricom
-                    <input type="radio" name="internet_provider" value="faiba" required> Faiba
-                    <input type="radio" name="internet_provider" value="zuku" required> Zuku
-                    <input type="radio" name="internet_provider" value="3rd party" required> 3rd party
+                <label>
+                  <b>Internet Provider:</b>
+                  <br>
+                  <select name="internet_provider" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="safaricom">Safaricom</option>
+                    <option value="faiba">Faiba</option>
+                    <option value="zuku">Zuku</option>
+                    <option value="3rd party">3rd party</option>
+                  </select>
                 </label>
                 <br>
-                <label> 
-                    <b>Parking:</b>
-                    <br>
-                    <input type="radio" name="parking" value="avaiable" required> Available
-                    <input type="radio" name="parking" value="not_avaiable" required> Not available
+                <label>
+                  <b>Parking:</b>
+                  <br>
+                  <select name="parking" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="available">Available</option>
+                    <option value="not_available">Not available</option>
+                  </select>
                 </label>
                 <br>
-                <label> 
-                    <b>Security:</b>
-                    <br>
-                    <input type="radio" name="security" value="avaiable" required> Available
-                    <input type="radio" name="security" value="not_avaiable" required> Not available
+                <label>
+                  <b>Security:</b>
+                  <br>
+                  <select name="security" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="available">Available</option>
+                    <option value="not_available">Not available</option>
+                  </select>
                 </label>
                 <br>
-                <label> 
-                    <b>Garbage Collection:</b>
+                <label>
+                  <b>Garbage Collection:</b>
+                  <br>
+                  <select name="garbage_collection" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="available">Available</option>
+                    <option value="not_available">Not available</option>
+                  </select>
+                </label>
+                <br>
+                <label>
+                    <b>Electricity:</b>
                     <br>
-                    <input type="radio" name="garbage_collection" value="avaiable" required> Available
-                    <input type="radio" name="garbage_collection" value="not_avaiable" required> Not available   
+                    <select name="electricity" required>
+                      <option value="" disabled selected>Select an option</option>
+                      <option value="prepaid">prepaid</option>
+                      <option value="postpaid">postpaid</option>
+                    </select>
                 </label>
                 <br>
                 <label> 
@@ -82,8 +102,8 @@
                     <input type="file" name="photo" required/>
                 </label>
                 <br>
+                <input type="submit" value="Submit"/>
             </form>
-            <input type="submit" value="Submit"/>
         </div>    
     </div>
 </div>   

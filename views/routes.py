@@ -17,7 +17,7 @@ def home_page(user_id=None):
 @login_required
 def house_page(user_id):
     user = User.query.get(user_id)
-    return render_template('House.html', user=current_user)
+    return render_template('House.html', user=current_user, user_id=user_id)
 
 @site_views.route('/about')
 def about_page():
@@ -30,3 +30,7 @@ def sign_page():
 @site_views.route('/log-in')
 def log_in():
     return render_template('log_in.html', user=None)
+
+@site_views.route('/properties')
+def all_properties():
+    return render_template('view_properties.html', user=None)

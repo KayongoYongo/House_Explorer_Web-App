@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin
+from views.file_upload import UPLOAD_FOLDER
 
 # Creating a database object
 db = SQLAlchemy()
@@ -15,6 +16,9 @@ def create_app():
     # This provides session security and protect against tampering of cookies and other data
     app.config['SECRET_KEY'] = 'bonoko and friends'
 
+        # configuring the upload folder 
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
     # Initialize the database
     db.init_app(app)
 
@@ -22,6 +26,7 @@ def create_app():
     from views.routes import  site_views
     from views.sign_up import users_blueprint
     from views.property import property_blueprint
+    from views.all_properties import display_all_blueprint
     from views.log_in import login_blueprint
     from views.log_out import logout_blueprint
 
@@ -29,6 +34,7 @@ def create_app():
     app.register_blueprint(site_views, url_prefix='')
     app.register_blueprint(users_blueprint, url_prefix='')
     app.register_blueprint(property_blueprint, url_prefix='')
+    app.register_blueprint(display_all_blueprint, url_prefix='')
     app.register_blueprint(login_blueprint, url_prefix='')
     app.register_blueprint(logout_blueprint, url_prefix='')
 

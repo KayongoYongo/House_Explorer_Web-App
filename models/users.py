@@ -2,8 +2,10 @@
 
 from views import db
 from datetime import datetime
+from flask import Flask
 from flask_login import UserMixin
 from sqlalchemy import Column, Integer, String, MetaData
+from sqlalchemy.orm import relationship
 import uuid
 
 """
@@ -35,6 +37,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(128), nullable=False)
     password_1 = db.Column(db.String(128), nullable=False)
     password_2 = db.Column(db.String(128), nullable=False)
+    property = relationship("Property", backref="user")
 
     def __init__(self, name, email, password_1, password_2):
         self.id = str(uuid.uuid4())

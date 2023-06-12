@@ -5,106 +5,120 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-          <form method="POST" action="{{ url_for('property_blueprint.create_property', user_id=user_id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url_for('property_blueprint.create_property', user_id=user_id) }}" enctype="multipart/form-data">
+                <h1 class="mt-5 mb-4">Add listing:</h1>
 
-                <h1><p>Add listing:</p></h1>
-                <br>
-                <br>
-                <label> 
-                    <b>Cost:</b>
-                    <input type="text" name="cost" placeholder="cost" pattern="^\d+(?:\.\d{1,2})?$" required/>
-                </label>
-                <br>
-                <label> 
-                    <b>Rooms:</b>
-                    <input type="number" name="rooms" placeholder="rooms" pattern="^\d+(?:\.\d{1,2})?$" required/>
-                </label>
-                <br>
-                <label> 
-                    <b>County:</b>
-                    <input type="text" name="county" placeholder="county" required/>
-                </label>
-                <br>
-                <label> 
-                    <b>Estate:</b>
-                    <input type="text" name="estate" placeholder="estate" required/>
-                </label>
-                <br>
-                <label>
-                  <b>Water Availability:</b>
-                  <br>
-                  <select name="water_availability" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="daily">Daily</option>
-                    <option value="irregular">Irregular</option>
-                  </select>
-                </label>
-                <br>
-                <label>
-                  <b>Internet Provider:</b>
-                  <br>
-                  <select name="internet_provider" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="safaricom">Safaricom</option>
-                    <option value="faiba">Faiba</option>
-                    <option value="zuku">Zuku</option>
-                    <option value="3rd party">3rd party</option>
-                  </select>
-                </label>
-                <br>
-                <label>
-                  <b>Parking:</b>
-                  <br>
-                  <select name="parking" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="available">Available</option>
-                    <option value="not_available">Not available</option>
-                  </select>
-                </label>
-                <br>
-                <label>
-                  <b>Security:</b>
-                  <br>
-                  <select name="security" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="available">Available</option>
-                    <option value="not_available">Not available</option>
-                  </select>
-                </label>
-                <br>
-                <label>
-                  <b>Garbage Collection:</b>
-                  <br>
-                  <select name="garbage_collection" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="available">Available</option>
-                    <option value="not_available">Not available</option>
-                  </select>
-                </label>
-                <br>
-                <label>
-                    <b>Electricity:</b>
-                    <br>
-                    <select name="electricity" required>
-                      <option value="" disabled selected>Select an option</option>
-                      <option value="prepaid">prepaid</option>
-                      <option value="postpaid">postpaid</option>
-                    </select>
-                </label>
-                <br>
-                <label> 
-                    <b>Photo:</b>
-                    <br>
-                    <input type="file" name="photo" required/>
-                </label>
-                <br>
-                <input type="submit" value="Submit"/>
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Cost:</b>
+                        <input type="text" class="form-control" name="cost" placeholder="Cost" pattern="^\d+(?:\.\d{1,2})?$" required>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Rooms:</b>
+                        <input type="number" class="form-control" name="rooms" placeholder="Rooms" pattern="^\d+(?:\.\d{1,2})?$" required>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>County:</b>
+                        <input type="text" class="form-control" name="county" placeholder="County" required>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Estate:</b>
+                        <input type="text" class="form-control" name="estate" placeholder="Estate" required>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Water Availability:</b>
+                        <select class="form-select" name="water_availability" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="daily">Daily</option>
+                            <option value="irregular">Irregular</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Internet Provider:</b>
+                        <select class="form-select" name="internet_provider" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="safaricom">Safaricom</option>
+                            <option value="faiba">Faiba</option>
+                            <option value="zuku">Zuku</option>
+                            <option value="3rd party">3rd party</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Parking:</b>
+                        <select class="form-select" name="parking" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="available">Available</option>
+                            <option value="not_available">Not available</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Security:</b>
+                        <select class="form-select" name="security" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="available">Available</option>
+                            <option value="not_available">Not available</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Garbage Collection:</b>
+                        <select class="form-select" name="garbage_collection" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="available">Available</option>
+                            <option value="not_available">Not available</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Electricity:</b>
+                        <select class="form-select" name="electricity" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="prepaid">Prepaid</option>
+                            <option value="postpaid">Postpaid</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <b>Photo:</b>
+                        <input type="file" class="form-control" name="photo" required>
+                    </label>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </div>
             </form>
         </div>    
     </div>
-</div>   
+</div>
 {% endblock %}

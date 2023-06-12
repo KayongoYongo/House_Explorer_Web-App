@@ -9,42 +9,39 @@ html, body {
   height: 100%;
 }
 
-/* Header styles */
+/* Header and Nav bar styling */
 header {
   background-color: rgb(37, 20, 190);
   color: #fff;
-  padding: 20px;
-  display: flex;
-  align-items: center;
+  padding: 18px;
 }
 
 header h1 {
   font-size: 28px;
 }
 
-nav {
-  margin-left: auto;
-}
-
 nav ul {
   list-style-type: none;
-  display: flex;
+  display:flex;
+  justify-content:flex-end;
 }
 
 nav ul li {
-  margin-right: 10px;
+  margin: 10px;
 }
 
 nav ul li a {
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 15px;
   font-size: 24px;
   color: #fff;
 }
 
 nav ul li a:hover {
   color: aqua;
+  text-decoration: none;
 }
+
 
 /* Main content styles */
 main {
@@ -76,7 +73,7 @@ footer {
 .contact-info h3,
 .address-info h3,
 .social-media h3 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .contact-info p,
@@ -84,31 +81,70 @@ footer {
   color: #ccc;
 }
 
+.social-media ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 34px;
+  font-size: 28px;
+}
+
 .fa {
-  padding: 20px;
-  font-size: 30px;
+  padding: 40px;
   width: 30px;
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
-  border-radius: 50%;
 }
 
 .fa:hover {
-  opacity: 0.7;
+  opacity: 0.5;
+  text-decoration: none;
 }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
+.fa-facebook .fa-twitter .fa-instagram{
+  color:white;
 }
 
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
 
-.fa-instagram {
-  background: #125688;
-  color: white;
+
+
+/* Mobile responsive styles */
+
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin: 20px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  footer .footer-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-info,
+  .address-info,
+  .social-media {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .social-media ul {
+    justify-content: center;
+  }
 }

@@ -5,21 +5,64 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    .card {
+        display: none;
+        position: absolute;
+        width: 300px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .card.show {
+        display: block;
+    }
+</style>
 
 <h1>Properties:</h1>
 <div style="display: flex; flex-wrap: wrap;">
     {% for index, filename in image_files|enumerate %}
-        <div style="width: 25%; margin-right: 20px;">
-            <a href="{{ url_for('site_views.home_page') }}">
-                <img src="{{ url_for('static', filename='UPLOADS/' + filename) }}" width="400" height="300">
+        <div style="width: 25%; margin-right: 20px; margin-top: 10px; margin-bottom: 10px">
+            <a href="#" onclick="showCard({{index}})">
+                <img src="{{ url_for('static', filename='UPLOADS/' + filename) }}" width="400" height="300" ;>
             </a>
-            <div>
-                <p>Cost: {{ matching_properties[index].cost }}</p>
-                <p>Rooms: {{ matching_properties[index].rooms }}</p>
-                <p>County: {{ matching_properties[index].county }}</p>
-                <p>Estate: {{ matching_properties[index].estate }}</p>
-            </div>
+            <div class="card" id="card{{ index }}">
+                <p><strong>Cost:</strong> {{ matching_properties[index].cost }}</p>
+                <p><strong>Rooms:</strong> {{ matching_properties[index].rooms }}</p>
+                <p><strong>County:</strong> {{ matching_properties[index].county }}</p>
+                <p><strong>Estate:</strong> {{ matching_properties[index].estate }}</p>
+                <p><strong>Property ID:</strong> {{ matching_properties[index].id }}</p>
+                <p><strong>Water availability:</strong> {{ matching_properties[index].water_availability }}</p>
+                <p><strong>Electricity:</strong> {{ matching_properties[index].electricity }}</p>
+                <p><strong>Internet provider:</strong> {{ matching_properties[index].internet_provider }}</p>
+                <p><strong>Garbage collection:</strong> {{ matching_properties[index].garbage_collection }}</p>
+                <p><strong>Security:</strong> {{ matching_properties[index].security }}</p>
+                <p><strong>Parking:</strong> {{ matching_properties[index].parking }}</p>
+                <p><strong>Electricity:</strong> {{ matching_properties[index].electricity }}</p>
+            </div>        
         </div>
     {% endfor %}
 </div>
+
+<script>
+    function showCard(index) {
+        var card = document.getElementById('card' + index);
+        card.classList.toggle('show');
+    }
+
+    // Add event listener to hide cards when clicking outside the image
+    document.addEventListener('click', function(event) {
+        var target = event.target;
+        var isImage = target.tagName === 'IMG';
+        var isCard = target.classList.contains('card');
+
+        if (!isImage && !isCard) {
+            var cards = document.querySelectorAll('.card');
+            cards.forEach(function(card) {
+                card.classList.remove('show');
+            });
+        }
+    });
+</script>
 {% endblock %}

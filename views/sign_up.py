@@ -13,7 +13,7 @@ users_blueprint = Blueprint('users_blueprint', __name__)
 @users_blueprint.route('/sign-up', methods=['POST'])
 def create_user():
 
-    # Get form data and store it in a varaible
+    # Get form data and store it in a variable
     name = request.form.get('name')
     email = request.form.get('email')
     password_1 = request.form.get('password_1')

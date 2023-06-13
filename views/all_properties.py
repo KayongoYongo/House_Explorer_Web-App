@@ -32,6 +32,7 @@ def images():
     Property.id, Property.water_availability, Property.electricity, Property.internet_provider,
     Property.parking, Property.security, Property.garbage_collection).all()
 
+    # Matchting properties sorted in lexicographic order
     matching_properties_sorted = sorted(matching_properties, key=lambda x: x[4])
 
     print(matching_properties)

@@ -30,6 +30,20 @@ The Web Explorer Web App helps users find rental houses based on location and am
 2. Commit your changes and push to the branch.
 3. Open a pull request with a detailed description of the changes.
 
+## Installation
+Run this simple command:
+`pip install -r requirements.txt`
+
+## Getting started
+1. Clone the repository:
+`https://github.com/KayongoYongo/House_Explorer_Web-App`
+
+2. Navigate to the apps directory and run this command:
+`python app.py`
+
+3. To run the website, copy this link onto the browser:
+`http://127.0.0.1:5000/`
+
 ## Contributers
 1. Loyd Ngei
 2. Allan Too
